@@ -6,7 +6,10 @@ compiler:
 
 env:
   - BUILD_TYPE=Debug
-  - BUILD_TYPE=Release
+
+before_install:
+  - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update && sudo apt-get install -y llvm-3.4 llvm-3.4-dev; fi
+  - if [ $TRAVIS_OS_NAME == osx ]; then brew update && brew install llvm && brew link --force llvm; fi
 
 install:
   - cmake -H./ -BBuild -DCMAKE_BUILD_TYPE=$BUILD_TYPE
