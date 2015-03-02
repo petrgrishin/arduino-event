@@ -8,7 +8,7 @@ env:
   - BUILD_TYPE=Debug
 
 before_install:
-  - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get install build-essential; fi
+  - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update && sudo apt-get install libc6-dev; fi
 
 install:
   - cmake -H./ -BBuild -DCMAKE_BUILD_TYPE=$BUILD_TYPE
