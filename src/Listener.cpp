@@ -1,5 +1,8 @@
 #define MAX_SUBSCRIBER 10
 
+#include "Event.cpp"
+#include "Subscriber.cpp"
+
 class Listener {
 public:
     Listener() {
@@ -40,4 +43,3 @@ private:
     char *_subscriberId[MAX_SUBSCRIBER];
     unsigned int _size;
 };
-
